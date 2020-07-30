@@ -1,0 +1,30 @@
+<div class="card ">
+    <div class="card-header text-center">
+        <h1>Calculator</h1>
+    </div>
+    <div class="card-body">
+        <div class="form-group d-flex flex-row">
+            <input required [(ngModel)]='num1' type="number" name="num1" class="form-control" />
+            <div class="alert alert-danger" *ngIf="!num1.valid && num1.touched">
+                Pls Enter Number.
+            </div>
+            <input [(ngModel)]='num2' type="number" name="num2" class="form-control" />
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <button type="submit" class="btn btn-primary" (click)="addition()">Add</button>
+            <button class="btn btn-success" (click)="sub()">Substact</button>
+            <button class="btn btn-warning" (click)="multiply()">Multiply</button>
+            <button class="btn btn-danger" (click)="divide()">Divide</button>
+        </div>
+    </div>
+    <div class="card-footer" [ngSwitch]="choose">
+
+
+        <h4 *ngSwitchCase="'addition'">The Sum of {{num1}} and {{num2}} is {{result}}</h4>
+
+        <h4 *ngSwitchCase="'sub'">The Substraction of {{num1}} and {{num2}} is {{result}}</h4>
+
+        <h4 *ngSwitchCase="'multiply'">The Multiplication of {{num1}} and {{num2}} is {{result}}</h4>
+
+        <h4 *ngSwitchCase="'divide'">The Division of {{num1}} and {{num2}} is {{result}}</h4>
+    </div>
